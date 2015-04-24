@@ -38,6 +38,6 @@ jar {
 dependencies {
 
     compile 'io.dropwizard:dropwizard-core:0.8.1'
-
+    
     testCompile 'junit:junit:4.11'
 }

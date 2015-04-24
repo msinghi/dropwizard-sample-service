@@ -1,5 +1,7 @@
 package sample.dropwizard.helloworld;
 
+import com.codahale.metrics.health.HealthCheck;
+
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -26,9 +28,9 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
 
         final HelloWorldResource resource = new HelloWorldResource(configuration.getTemplate(),
                 configuration.getDefaultName());
-        environment.jersey().register(resource);
-
-        final TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.getTemplate());
+        
+        final HealthCheck healthCheck = new TemplateHealthCheck(configuration.getTemplate());
+        
         environment.healthChecks().register("template", healthCheck);
         environment.jersey().register(resource);
     }

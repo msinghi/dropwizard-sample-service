@@ -6,6 +6,7 @@ server:
     applicationConnectors:
        - type: http
          port: 8085
+    
     requestLog:
         timeZone: UTC
         appenders:

@@ -6,6 +6,14 @@ server:
     applicationConnectors:
        - type: http
          port: 8085
+    requestLog:
+        timeZone: UTC
+        appenders:
+         - type: file
+           currentLogFilename: logs/access.log
+           archive: true
+           archivedLogFilenamePattern: logs/access-%d.log.gz
+           archivedFileCount: 10
 
 # Logging settings.
 logging:
@@ -14,8 +22,8 @@ logging:
   level: INFO
   appenders:
     - type: file
-      currentLogFilename: logs/mylog.log
+      currentLogFilename: logs/app.log
       archive: true
-      archivedLogFilenamePattern: logs/dse-dwsvc-%d.log.gz
+      archivedLogFilenamePattern: logs/app-%d.log.gz
       archivedFileCount: 10
       timeZone: UTC

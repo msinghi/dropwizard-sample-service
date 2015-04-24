@@ -1,0 +1,21 @@
+template: Hello, %s!
+defaultName: Stranger
+
+server:
+    type: default
+    applicationConnectors:
+       - type: http
+         port: 8085
+
+# Logging settings.
+logging:
+
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+  appenders:
+    - type: file
+      currentLogFilename: logs/mylog.log
+      archive: true
+      archivedLogFilenamePattern: logs/dse-dwsvc-%d.log.gz
+      archivedFileCount: 10
+      timeZone: UTC
